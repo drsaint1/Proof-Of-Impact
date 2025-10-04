@@ -1,0 +1,9 @@
+{
+  "network": "vechain-testnet",
+  "timestamp": "2025-10-04T15:14:10.966Z",
+  "contracts": {
+    "MockB3TR": "0x4cd45ab6ef60f3e8454731306bb95b9ff49a8b2d",
+    "StakingPool": "0xe95f8c3375610c5da11a6cfc6228abd65daec3a5",
+    "Governance": "0x649181cf9df80256f6b3cce7efa13c4210381a2a"
+  }
+}
