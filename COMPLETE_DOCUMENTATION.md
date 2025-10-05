@@ -1979,19 +1979,21 @@ VITE v7.1.7  ready in 1086 ms
 
 ### A. Contract Addresses (Testnet)
 
-*Deployed after deployment script runs*
+**Current Deployment (VeChain Testnet):**
 
 ```json
 {
   "network": "vechainTestnet",
+  "deployedAt": "2025-01-XX",
   "contracts": {
-    "MockB3TR": "0x...",
-    "ReputationNFT": "0x...",
-    "OpportunityContract": "0x...",
-    "StakingPool": "0x...",
-    "FeeDelegationManager": "0x..."
+    "MockB3TR": "0x7aD9F24cfBCA24BaD13cD12f33cc32Ce15652d16",
+    "ReputationNFT": "0x3FDBDB1D6E1fF318FF49fC7F7e99a0cc46DEF03a",
+    "OpportunityContract": "0xb603Cc29cd21e7baAD17c57b064a26C5F1f1ab35",
+    "StakingPool": "0xB65D4F9BEA1e7ccdC2F49b17D1E89EafDf5B38a9",
+    "FeeDelegationManager": "0x06fC26D91B8f2D374b6D4F6aC3F0c6C16bDe1395",
+    "Governance": "0xdFE0D2F8B5E353DD3D5A1B81e92F1f18Ba1fA97E"
   },
-  "oracleNode": "0x..."
+  "nftMetadataURI": "ipfs://bafkreifsqhxwqsvc663n6j4hyfnxtbpebxbgdsd6d5zavjf7yzyfexov2y"
 }
 ```
 
@@ -2063,22 +2065,25 @@ A: No! With fee delegation, NGOs sponsor the gas fees. Volunteers just need a wa
 A: Typically 30-60 seconds from submission to reward distribution.
 
 **Q: Can the oracle be trusted?**
-A: The oracle uses AI and is verifiable on-chain. Future: Decentralized oracle network.
+A: Both AI oracle AND NGOs can verify submissions. Dual authorization ensures trust.
 
 **Q: What if photo doesn't match requirements?**
-A: AI rejects it automatically. Volunteer can resubmit with better proof.
+A: Submission can be rejected. Volunteer can resubmit with better proof.
 
 **Q: How much does it cost NGOs?**
 A: 100 B3TR stake + reward amounts + minimal gas (~$0.08 per 100 volunteers).
 
 **Q: Is this production-ready?**
-A: Currently testnet. Mainnet deployment planned for Q1 2025 after audits.
+A: Currently testnet. Mainnet deployment planned after security audits.
 
 **Q: Can this scale to millions of users?**
 A: Yes! VeChain's MPP and low fees enable mass adoption. Multiple oracles can be added.
 
 **Q: What prevents fake submissions?**
-A: AI verification, GPS validation, and reputation scoring. Fraudsters lose reputation.
+A: Dual verification (Oracle + NGO), GPS validation, and reputation scoring.
+
+**Q: How do I get test tokens?**
+A: Visit the Faucet page to claim 10,000 B3TR tokens (1-hour cooldown between claims).
 
 ---
 
@@ -2125,6 +2130,32 @@ We create a platform that:
 
 ---
 
-**Last Updated:** October 1, 2024
-**Version:** 1.0.0
+**Last Updated:** October 5, 2025
+**Version:** 2.0.0
 **License:** MIT
+
+---
+
+## Recent Updates (v2.0.0)
+
+### New Features
+- ✅ **Dual Verification System**: Both Oracle and NGO can now verify submissions
+- ✅ **NFT Metadata**: Single IPFS image for all Reputation NFTs
+- ✅ **Enhanced Governance**: Full DAO governance with voting and proposals
+- ✅ **10,000 B3TR Faucet**: Increased faucet amount for better testing
+- ✅ **Leaderboard**: Real-time rankings with live blockchain data
+- ✅ **Category Filters**: Modern UI with 6 opportunity categories
+- ✅ **Achievement System**: Gamified badges for volunteer milestones
+
+### Technical Improvements
+- ✅ TypeScript build errors fixed (0 errors)
+- ✅ Code cleanup (removed console logs and AI comments)
+- ✅ Comprehensive .gitignore for security
+- ✅ Production-ready documentation
+- ✅ Updated contract addresses with Governance contract
+
+### Contract Updates
+- **OpportunityContract**: NGO verification authority added
+- **ReputationNFT**: IPFS tokenURI support implemented
+- **Governance**: Full DAO governance system deployed
+- **All contracts**: Deployed to VeChain Testnet with verified addresses
