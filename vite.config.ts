@@ -1,29 +1,29 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   define: {
-    global: 'globalThis',
-    'process.env': {},
+    global: "globalThis",
+    "process.env": {},
   },
   resolve: {
     alias: {
-      buffer: 'buffer/',
-      process: 'process/browser',
-      util: 'util/',
-      crypto: 'crypto-browserify',
-      stream: 'stream-browserify',
+      buffer: "buffer/",
+      process: "process/browser",
+      util: "util/",
+      crypto: "crypto-browserify",
+      stream: "stream-browserify",
     },
   },
   optimizeDeps: {
     esbuildOptions: {
       define: {
-        global: 'globalThis',
+        global: "globalThis",
       },
     },
-    include: ['buffer', 'process', 'crypto-browserify', 'stream-browserify'],
+    include: ["buffer", "process", "crypto-browserify", "stream-browserify"],
   },
   build: {
     rollupOptions: {
@@ -33,4 +33,4 @@ export default defineConfig({
       transformMixedEsModules: true,
     },
   },
-})
+});

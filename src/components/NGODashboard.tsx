@@ -43,13 +43,13 @@ export default function NGODashboard({ connex, account }: NGODashboardProps) {
   const [feeDelegationAddress, setFeeDelegationAddress] = useState<string>('');
 
   const [formData, setFormData] = useState({
-    title: 'Beach Cleanup - Marina Bay',
-    description: 'Join us for a community beach cleanup event at Marina Bay. Help remove plastic waste and protect marine life. All materials provided. Family-friendly event!',
-    proofRequirements: 'Take a photo showing collected trash bags with the beach/ocean in background. GPS location must be within 1km of Marina Bay.',
-    rewardAmount: '50',
-    maxVolunteers: '20',
-    latitude: '1.2804',
-    longitude: '103.8520',
+    title: '',
+    description: '',
+    proofRequirements: '',
+    rewardAmount: '',
+    maxVolunteers: '',
+    latitude: '',
+    longitude: '',
     radiusMeters: '1000',
     category: 'environmental',
   });
