@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserProvider, formatEther } from 'ethers';
+import { formatEther } from 'ethers';
 import { Trophy, Medal, Award, TrendingUp } from 'lucide-react';
 import { getContracts } from '../utils/contracts';
 
@@ -159,7 +159,7 @@ export default function Leaderboard({ connex, account }: LeaderboardProps) {
             <p className="text-gray-400 text-sm mt-2">Be the first to complete an opportunity!</p>
           </div>
         ) : (
-          leaders.map((leader, index) => {
+          leaders.map((leader) => {
           const isCurrentUser = leader.address.toLowerCase() === account.toLowerCase();
 
           return (

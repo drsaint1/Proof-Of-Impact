@@ -35,19 +35,19 @@ interface Comment {
   text?: string;
 }
 
-enum VoteOption {
-  Against = 0,
-  For = 1,
-  Abstain = 2,
-}
+const VoteOption = {
+  Against: 0,
+  For: 1,
+  Abstain: 2,
+} as const;
 
-enum ProposalState {
-  Active = 0,
-  Defeated = 1,
-  Passed = 2,
-  Executed = 3,
-  Cancelled = 4,
-}
+const ProposalState = {
+  Active: 0,
+  Defeated: 1,
+  Passed: 2,
+  Executed: 3,
+  Cancelled: 4,
+} as const;
 
 export default function GovernanceDashboard({ connex, account }: GovernanceDashboardProps) {
   const toast = useToast();
@@ -204,7 +204,7 @@ export default function GovernanceDashboard({ connex, account }: GovernanceDashb
         .gas(1600000)
         .comment('Create Governance Proposal');
 
-      const result = await tx.request();
+      await tx.request();
 
       setFormData({ title: '', description: '' });
       setShowCreateForm(false);
@@ -219,7 +219,7 @@ export default function GovernanceDashboard({ connex, account }: GovernanceDashb
     }
   };
 
-  const handleVote = async (proposalId: number, option: VoteOption) => {
+  const handleVote = async (proposalId: number, option: number) => {
     if (userBalance < MIN_BALANCE) {
       toast.error('You need at least 100 B3TR to vote');
       return;
@@ -242,7 +242,7 @@ export default function GovernanceDashboard({ connex, account }: GovernanceDashb
         .gas(400000)
         .comment(`Vote on Proposal #${proposalId}`);
 
-      const result = await tx.request();
+      await tx.request();
 
       setTimeout(loadProposals, 2000);
       setTimeout(loadProposals, 2000);
@@ -272,7 +272,7 @@ export default function GovernanceDashboard({ connex, account }: GovernanceDashb
         .gas(500000)
         .comment(`Execute Proposal #${proposalId}`);
 
-      const result = await tx.request();
+      await tx.request();
 
       setTimeout(loadProposals, 2000);
       toast.success('Proposal executed successfully!');
@@ -298,7 +298,7 @@ export default function GovernanceDashboard({ connex, account }: GovernanceDashb
         .gas(400000)
         .comment(`Cancel Proposal #${proposalId}`);
 
-      const result = await tx.request();
+      await tx.request();
 
       setTimeout(loadProposals, 2000);
       toast.success('Proposal cancelled successfully!');
@@ -389,7 +389,7 @@ export default function GovernanceDashboard({ connex, account }: GovernanceDashb
         .gas(400000)
         .comment(`Comment on Proposal #${proposalId}`);
 
-      const result = await tx.request();
+      await tx.request();
 
       setCommentText('');
       toast.success('Comment added successfully!');

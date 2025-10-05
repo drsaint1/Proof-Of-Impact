@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserProvider, parseEther, formatEther, Interface } from 'ethers';
+import { parseEther, formatEther, Interface } from 'ethers';
 import { TrendingUp, Lock, Unlock, Gift, DollarSign } from 'lucide-react';
 import { getContracts } from '../utils/contracts';
 import { useToast } from '../hooks/useToast';

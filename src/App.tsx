@@ -11,16 +11,10 @@ import LandingPage from './components/LandingPage';
 import Statistics from './components/Statistics';
 import { ToastProvider } from './hooks/useToast';
 
-declare global {
-  interface Window {
-    vechain?: any;
-  }
-}
-
 type PageType = 'select' | 'ngo' | 'volunteer' | 'faucet' | 'staking' | 'governance';
 
 function App() {
-  const { account, connectedWallet, disconnect } = useWallet();
+  const { account, disconnect } = useWallet();
   const [currentPage, setCurrentPage] = useState<PageType>('select');
   const [connex, setConnex] = useState<any>(null);
 
@@ -32,10 +26,10 @@ function App() {
   useEffect(() => {
     // Get connex from VeWorld extension
     const initConnex = async () => {
-      if (window.vechain && typeof window.vechain.newConnex === 'function') {
+      if (window.vechain && typeof (window.vechain as any).newConnex === 'function') {
         try {
           // Create connex instance using VeWorld's newConnex function with proper options
-          const connexInstance = await window.vechain.newConnex({
+          const connexInstance = await (window.vechain as any).newConnex({
             node: 'https://testnet.vechain.org/',
             network: 'test'
           });

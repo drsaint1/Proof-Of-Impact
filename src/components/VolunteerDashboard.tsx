@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserProvider, formatEther } from 'ethers';
+import { formatEther } from 'ethers';
 import { MapPin, Upload, Award, DollarSign, Camera, CheckCircle, Clock } from 'lucide-react';
 import { getContracts } from '../utils/contracts';
 import { uploadToIPFS } from '../utils/ipfs';
@@ -99,7 +99,7 @@ export default function VolunteerDashboard({ connex, account }: VolunteerDashboa
             longitude: position.coords.longitude.toString(),
           });
         },
-        (error) => {
+        () => {
           toast.warning('Please enable location services');
         }
       );

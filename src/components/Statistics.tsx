@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Users, Award, MapPin, TrendingUp } from 'lucide-react';
 import { getContracts } from '../utils/contracts';
 
@@ -14,7 +14,6 @@ export default function Statistics({ connex, account }: StatisticsProps) {
     totalRewardsDistributed: '0',
     stakingTVL: '0',
   });
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!connex) return;
@@ -22,9 +21,8 @@ export default function Statistics({ connex, account }: StatisticsProps) {
     let cancelled = false;
 
     const loadStatistics = async () => {
-      setLoading(true);
       try {
-        const { opportunityContract, b3trToken, stakingPool} = await getContracts(connex, account);
+        const { opportunityContract, stakingPool } = await getContracts(connex, account);
 
         // Get total opportunities
         let opportunities = [];
@@ -66,10 +64,6 @@ export default function Statistics({ connex, account }: StatisticsProps) {
         }
       } catch (error) {
         if (!cancelled) {
-        }
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
         }
       }
     };

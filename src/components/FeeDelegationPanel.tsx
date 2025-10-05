@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { parseEther, formatEther, Interface } from 'ethers';
-import { Zap, Users, DollarSign, CheckCircle, Loader, AlertCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { parseEther, formatEther } from 'ethers';
+import { Zap, Users, DollarSign, CheckCircle, Loader } from 'lucide-react';
 import { useToast } from '../hooks/useToast';
 import FeeDelegationABI from '../contracts/FeeDelegationManager.json';
 
@@ -71,7 +71,7 @@ export default function FeeDelegationPanel({ connex, account, feeDelegationAddre
         .gas(200000)
         .comment(`Deposit ${depositAmount} VET for fee sponsorship`);
 
-      const result = await tx.request();
+      await tx.request();
 
       toast.success(`Successfully deposited ${depositAmount} VET!`);
       setDepositAmount('');
@@ -103,7 +103,7 @@ export default function FeeDelegationPanel({ connex, account, feeDelegationAddre
         .gas(300000)
         .comment('Add volunteer to fee sponsorship');
 
-      const result = await tx.request();
+      await tx.request();
 
       toast.success(`Volunteer ${newVolunteer.slice(0, 8)}... added!`);
       setNewVolunteer('');
@@ -141,7 +141,7 @@ export default function FeeDelegationPanel({ connex, account, feeDelegationAddre
         .gas(200000)
         .comment(`Withdraw ${withdrawAmount} VET`);
 
-      const result = await tx.request();
+      await tx.request();
 
       toast.success(`Successfully withdrew ${withdrawAmount} VET`);
       setWithdrawAmount('');

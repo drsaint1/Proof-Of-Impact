@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserProvider, formatEther } from 'ethers';
+import { formatEther } from 'ethers';
 import { Droplet, Wallet, CheckCircle, Loader } from 'lucide-react';
 import { getContracts } from '../utils/contracts';
 import { useToast } from '../hooks/useToast';

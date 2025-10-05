@@ -8,7 +8,7 @@ interface LandingPageProps {
   onGetStarted: () => void;
 }
 
-export default function LandingPage({ onGetStarted }: LandingPageProps) {
+export default function LandingPage({ }: LandingPageProps) {
   const { open: openConnectModal } = useConnectModal();
   const [stats, setStats] = useState({
     totalVolunteers: 0,
@@ -16,18 +16,16 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
     opportunities: 0,
     countries: 0,
   });
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadRealStats = async () => {
       try {
         // Get connex from window
-        if (!window.vechain || typeof window.vechain.newConnex !== 'function') {
-          setLoading(false);
+        if (!window.vechain || typeof (window.vechain as any).newConnex !== 'function') {
           return;
         }
 
-        const connex = await window.vechain.newConnex({
+        const connex = await (window.vechain as any).newConnex({
           node: 'https://testnet.vechain.org/',
           network: 'test'
         });
@@ -72,9 +70,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           opportunities: validOpps.length,
           countries: countriesSet.size > 0 ? countriesSet.size : 1,
         });
-        setLoading(false);
       } catch (error) {
-        setLoading(false);
       }
     };
 

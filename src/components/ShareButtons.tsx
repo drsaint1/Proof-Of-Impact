@@ -51,7 +51,7 @@ export default function ShareButtons({ title, description, url }: ShareButtonsPr
 
   return (
     <div className="flex items-center gap-2">
-      {navigator.share && (
+      {navigator.share !== undefined && (
         <button
           onClick={handleNativeShare}
           className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm font-semibold"
